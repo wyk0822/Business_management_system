@@ -1,0 +1,59 @@
+{% extends 'shangpinguanli.html' %}
+{% block  title %}
+    <title>修改商品类型</title>
+{% endblock %}
+
+{% block link_style %}
+<!--<link rel="stylesheet" href="/static/css/shangpin.css">-->
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}
+
+{% block setting %}
+{% endblock %}
+
+{% block link %}
+    <a href="/">
+        <i class=""></i>
+        <li>商品管理&nbsp;&nbsp;&nbsp;></li>
+    </a>
+    <a href="javacript:void(0);">
+        <i class=""></i>
+        <li>类型管理&nbsp;&nbsp;&nbsp;></li>
+    </a>
+    <a href="{% url 'show_order' %}">
+        <i class=""></i>
+        <li>订单管理&nbsp;&nbsp;&nbsp;></li>
+    </a>
+    <a href="{% url 'show_huiyuan' %}">
+        <i class=""></i>
+        <li>会员管理&nbsp;&nbsp;&nbsp;></li>
+    </a>
+    <a href="">
+        <i class=""></i>
+        <li>数据展示&nbsp;&nbsp;&nbsp;></li>
+    </a>
+{% endblock %}
+
+
+
+{% block  main %}
+<div id='search'>
+    <p id="search_title">修改商品类型</p>
+    <form action="{% url 'update_type_1' %}" method="get">
+        <input type="hidden" value="{{ goods_type.id }}" name="id">
+        <span>
+            *类型编码：<input type="text" name="lid" value="{{ goods_type.leibie_id }}">
+        </span>
+        <span>
+            *类型名称：<input type="text" name="lname" value="{{ goods_type.leixing }}">
+        </span>
+        <span>
+            *级 &nbsp;&nbsp; 别:<input type="text" name="lv" value="{{ goods_type.jibie }}">
+        </span>
+        <input class="search_btn" type="submit" value="确认并保存">
+    </form>
+</div>
+{% endblock %}

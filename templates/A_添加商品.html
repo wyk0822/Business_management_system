@@ -1,0 +1,67 @@
+{% extends 'shangpinguanli.html' %}
+{% block  title %}
+    <title>新增商品</title>
+{% endblock %}
+
+{% block link_style %}
+<link rel="stylesheet" href="/static/css/shangpin.css">
+{% endblock %}
+
+{% block setting %}
+{% endblock %}
+
+{% block link %}
+    <a href="javacript:void(0);">
+        <i class=""></i>
+        <li>商品管理&nbsp;&nbsp;&nbsp;></li>
+    </a>
+    <a href="/leibie/type/">
+        <i class=""></i>
+        <li>类型管理&nbsp;&nbsp;&nbsp;></li>
+    </a>
+    <a href="{% url 'show_order' %}">
+        <i class=""></i>
+        <li>订单管理&nbsp;&nbsp;&nbsp;></li>
+    </a>
+    <a href="{% url 'show_huiyuan' %}">
+        <i class=""></i>
+        <li>会员管理&nbsp;&nbsp;&nbsp;></li>
+    </a>
+    <a href="">
+        <i class=""></i>
+        <li>数据展示&nbsp;&nbsp;&nbsp;></li>
+    </a>
+{% endblock %}
+
+
+{% block  main %}
+<div id='search'>
+    <p id="search_title">增加商品</p>
+
+    <form action="{% url 'update_goods_2' %}" method="get" id="search_form">
+        <hr>
+        <span>*商品编号：<input type="text" name="sid"></span>
+        <span>*商品类型：
+            <select name="goods_type_id" id="moreselAge">
+                {% for goods_type in goods_types %}
+                    <option  value="{{ goods_type.id }}">{{ goods_type.leixing }}</option>
+                {% endfor %}
+            </select>
+        </span>
+        <br>
+        <span>*商品名称：<input type="text" name="name"></span>
+        <span>*商品价格：<input type="text" name="price"></span>
+        <br>
+        <span>*商品库存：<input type="number" name="kucun"></span>
+        <span>&nbsp;&nbsp;商品规格：<input type="text" name="guige" placeholder="如：纯棉"></span>
+
+        <br>
+        <span>*兑换所需积分：<input type="text" name="jifen" placeholder="默认：100000.00积分"></span>
+        <br>
+        <span>商品描述：<textarea name="miaoshu" cols="70" rows="10"></textarea></span>
+
+
+        <input class="search_btn" type="submit" value="添加并保存">
+    </form>
+</div>
+{% endblock %}

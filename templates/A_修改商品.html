@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    {% load staticfiles %}
+    <link REL="SHORTCUT ICON" HREF="/static/images/web.ico">
+    <meta charset="UTF-8">
+    {% block  title %}
+    <title>修改商品</title>
+
+    <link href="/static/css/shangpinguanli.css" rel="stylesheet">
+
+    <link href="/static/css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/shangpin.css">
+
+
+    {% endblock %}
+    <script type="text/javascript" src="/static/js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="/static/js/checkbok_btn.js"></script>
+
+</head>
+<body>
+    <!--顶部-->
+    <div id="title">
+        <h1>商家管理系统</h1>
+        <span>
+            欢迎 {{ user.administrator_name }} 登陆商家管理系统
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{% url 'logout' %}">退出</a>
+        </span>
+
+    </div>
+
+    <!--左侧导航栏-->
+    <div id="list_left">
+        <ol>
+            {% block link %}
+            <a href="javacript:void(0);">
+                <i class=""></i>
+                <li>商品管理&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            <a href="/leibie/type/">
+                <i class=""></i>
+                <li>类型管理&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            <a href="{% url 'show_order' %}">
+                <i class=""></i>
+                <li>订单管理&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            <a href="{% url 'show_huiyuan' %}">
+                <i class=""></i>
+                <li>会员管理&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            <a href="">
+                <i class=""></i>
+                <li>数据展示&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            {% endblock %}
+        </ol>
+    </div>
+
+    <!--搜索栏-->
+    {% block main %}
+    <div id='search'>
+        <p id="search_title">修改商品</p>
+
+        <form action="{% url 'change_goods_2' %}" method="get" id="search_form">
+            <hr>
+            <input type="hidden" value="{{good.id}}" name="good_id">
+            <span>*商品编号：<input type="text" name="sid" value="{{good.goods_id}}"></span>
+
+            <span>*商品类型：<select name="goods_type_id" id="moreselAge">
+                    {% for goods_type in goods_types %}
+                        <option  value="{{ goods_type.id }}" selected="{{ good.goods_type}}">{{ goods_type.leixing }}</option>
+                    {% endfor %}
+                </select>
+            </span>
+
+
+            <br>
+            <span>*商品名称：<input type="text" name="name" value="{{good.goods_name}}"></span>
+            <span>*商品价格：<input type="text" name="price" value="{{good.goods_price}}"></span>
+            <br>
+            <span>*商品库存：<input type="number" name="kucun" value="{{good.goods_kucun}}"></span>
+            <span>&nbsp;&nbsp;商品规格：<input type="text" name="guige" value="{{good.goods_guige}}"></span>
+
+            <br>
+            <span>*兑换所需积分：<input type="text" name="jifen" value="{{good.goods_jifen}}"></span>
+            <br>
+            <span>商品描述：<textarea name="miaoshu" cols="70" rows="10">{{good.goods_text}}</textarea></span>
+
+
+            <input class="search_btn" type="submit" value="添加并保存">
+        </form>
+    </div>
+    {% endblock %}
+
+
+</body>
+</html>
+
+

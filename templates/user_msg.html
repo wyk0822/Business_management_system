@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<form action="{% url 'settings_2'%}">
+    <span>
+        昵称：<input type="text" name="name" value="{{user.administrator_name}}"><br>
+    </span>
+    <span>
+        积分：<input type="text" name="jifen" value="{{user.administrator_jifen}}"><br>
+    </span>
+    <input type="submit">
+
+</form>
+<hr>
+<span>修改密码</span>
+<form action="{% url 'update_pwd'%}">
+    <span>
+        旧&nbsp;&nbsp;密&nbsp;码：<input type="password" name="old_pwd" ><br>
+    </span>
+    <span>
+        新&nbsp;&nbsp;密&nbsp;码：<input type="password" name="new_pwd" ><br>
+    </span>
+    <span>
+        确认密码：<input type="password" name="new_pwd_2" ><br>
+    </span>
+    <input type="submit">
+
+</form>
+</body>
+</html>

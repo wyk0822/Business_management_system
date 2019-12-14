@@ -1,0 +1,57 @@
+{% extends 'shangpinguanli.html' %}
+{% block  title %}
+    <title>添加商品类型</title>
+{% endblock %}
+
+{% block js %}
+
+{% block setting %}
+{% endblock %}
+
+{% block link_style %}
+<!--<link rel="stylesheet" href="/static/css/shangpin.css">-->
+{% endblock %}
+
+{% endblock %}
+
+{% block link %}
+    <a href="/">
+        <i class=""></i>
+        <li>商品管理&nbsp;&nbsp;&nbsp;></li>
+    </a>
+    <a href="javacript:void(0);">
+        <i class=""></i>
+        <li>类型管理&nbsp;&nbsp;&nbsp;></li>
+    </a>
+    <a href="{% url 'show_order' %}">
+        <i class=""></i>
+        <li>订单管理&nbsp;&nbsp;&nbsp;></li>
+    </a>
+    <a href="{% url 'show_huiyuan' %}">
+        <i class=""></i>
+        <li>会员管理&nbsp;&nbsp;&nbsp;></li>
+    </a>
+    <a href="">
+        <i class=""></i>
+        <li>数据展示&nbsp;&nbsp;&nbsp;></li>
+    </a>
+{% endblock %}
+
+
+
+{% block  main %}
+<div id='search'>
+    <p id="search_title">添加商品类型</p>
+    <form action="{% url 'add_type_1' %}" method="get">
+        <span>*类型编码：
+            <input type="text" name="lid">
+        </span>
+        <span>
+            *级 &nbsp;&nbsp; 别:
+            <input type="text" name="lv">
+        </span>
+        <span>*类型名称：<input type="text" name="lname"></span>
+        <input class="search_btn" type="submit" value="确认并保存" id="add_btn">
+    </form>
+</div>
+{% endblock %}

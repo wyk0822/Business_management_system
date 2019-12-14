@@ -1,0 +1,133 @@
+{% extends 'login.html' %}
+
+{% block title %}
+  <title>注册页面</title>
+{% endblock %}
+
+
+{% block h2 %}
+<h2>欢迎注册商家管理系统</h2>
+{% endblock %}
+
+
+
+{% block style %}
+    <style>
+        #regist>form{
+            margin-top: 20px;
+        }
+
+        #huiyuan{
+            bottom: 168px;
+        }
+    </style>
+{% endblock %}
+
+
+{% block js %}
+    <script>
+        $(function () {
+
+            //声明一个变量，用来记录uphone的存在状态
+            var phoneStatus = 1;
+
+            // 点击btnLogin的时候跳转到login.html
+            $("#btnLogin").click(function () {
+                location.href='{% url 'login' %}';
+            })
+
+
+            /* 为 name = uphone的框绑定blur事件*/
+            $("[name='administrator_id']").blur(function () {
+                if($(this).val().trim().length == 0)
+                    return;
+                $.get('/userInfo/check_uphone/',{
+                    'administrator_id':$(this).val()
+                },function (data) {
+                    $("#uphone-show").html(data.msg);
+                    phoneStatus = data.status;
+                },'json');
+            });
+
+
+            /* 为表单绑定sunmit事件*/
+            $("#formReg").submit(function () {
+                if(phoneStatus == 1){
+                    return false;
+                }else{
+                    return true;
+                }
+
+            });
+        });
+
+
+        $(function () {
+            $(".go_RegBtn").click(function () {
+                location.href='{% url 'login' %}';
+            })
+        })
+
+    </script>
+{% endblock %}
+
+
+
+
+
+{% block login %}
+    <a href="/userInfo/login/">会员登录></a>
+{% endblock %}
+
+
+{% block form %}
+<form id="formReg" method="post" action="{% url 'register' %}">
+{% csrf_token %}
+<!-- 		第一行		 -->
+    <div id="" class="form-line">
+        <p>帐号</p>
+        <div id="" class="">
+            <input class="form-control" type="text" name="administrator_id" maxlength="11" placeholder="请输入6-11位的数字字符">
+            <span id="uphone-show"></span>
+        </div>
+    </div>
+
+    <div id="" class="form-line">
+        <p>昵称</p>
+        <div id="" class="">
+            <input class="form-control" type="text" name="administrator_name" placeholder="请输入2-5位字符">
+        </div>
+    </div>
+
+    <div id="" class="form-line">
+        <p>密码</p>
+        <div id="" class="">
+            <input class="form-control" type="password" name="administrator_pwd" placeholder="请输入6-20位的数字字符" maxlength="20">
+        </div>
+    </div>
+
+    <div id="" class="form-line">
+        <p>确认密码</p>
+        <div id="" class="">
+            <input class="form-control" type="password" name="administrator_pwd2" maxlength="20" placeholder="请输入6-20位的数字字符">
+        </div>
+    </div>
+
+
+
+
+
+    <div id="" class="form-line">
+        <p></p>
+        <div id="" class="">
+            <input class="loginBtn btn" type="submit" value="注册">
+            {% block huiyuan %}
+                <input class="go_RegBtn" type="button" value="会员登录">
+                <!--<a id="huiyuan" href="/userInfo/login/">会员登录></a>-->
+            {% endblock %}
+            <!--<input id="btnLogin" class="registBtn btn" type="button" value="会员登录">-->
+        </div>
+    </div>
+</form>
+{% endblock %}
+

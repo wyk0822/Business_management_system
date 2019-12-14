@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="">
+ <head>
+	 {% load staticfiles %}
+    <link REL="SHORTCUT ICON" HREF="/static/images/web.ico">
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+	 {% block title %}
+  <title>登录页面</title>
+	 {% endblock %}
+  <link rel="stylesheet" href="/static/css/00-regist.css">
+	 <script src="/static/js/jquery-1.11.3.js"></script>
+
+	 {% block js %}
+        <script>
+            $(function () {
+                $(".go_RegBtn").click(function () {
+                    location.href='{% url 'register' %}';
+                })
+
+                // 点击btnLogin的时候跳转到login.html
+                $("#security_img").click(function () {
+                    console.log("123213");
+                    $.get('/userInfo/update_security_img/',function (data) {
+                        console.log(data.image_url);
+                        console.log(typeof data.image_url);
+                        var html = "";
+                        html += '<img src="';
+                        html += data.image_url;
+                        html += '" id="id_captcha">';
+                        html +='<input value="';
+                        html += data.hashkey;
+                        html += '" name="hashkey" type="hidden" id="id_captcha_0">'
+                        $("#security_img").html(html);
+
+
+                    },'json');
+
+            })
+            })
+        </script>
+    {% endblock %}
+
+
+    {% block style %}
+    {% endblock %}
+ </head>
+ <body>
+	<div id="container" class="">
+<!-- 	页面分上下两部分	 -->
+		{% block h2 %}
+		  <!--<h2>欢迎登录商家管理系统</h2>-->
+		{% endblock %}
+		<div id="regist" class="">
+<!-- 		左列结构	 -->
+			<p>
+				<!--<img src="/static/images/login.jpg" width="500px" height="400px" border="0" alt="">-->
+				{% block login %}
+				<!--<a href="/userInfo/register/">会员注册></a>-->
+				{% endblock %}
+			</p>
+<!--		右列结构	 -->
+			{% block form %}
+			<form method="post" action="{% url 'login' %}">
+				{% csrf_token %}
+<!-- 		第一行		 -->
+				<div id="" class="form-line">
+					<p>账号</p>
+					<div id="" class="">
+						<input class="form-control" type="text" name="administrator_id" placeholder="请输入账号">
+					</div>
+				</div>
+				<div id="" class="form-line">
+					<p>密码</p>
+					<div id="" class="">
+						<input class="form-control" type="password" name="administrator_pwd" placeholder="请输入密码" maxlength="20">
+					</div>
+				</div>
+
+				<div id="" class="form-line">
+					<p>验证码</p>
+					<div style="width: 150px">
+						<input class="form-control" type="text" name="security_code" placeholder="请输入验证码" maxlength="4" style="width: 122px">
+					</div>
+
+					<div style="width: 150px">
+                        <a id="security_img" href="javacript:void(0);">
+                            <img src="{{captcha.image_url}}" alt="点击换一张" id="id_captcha">
+                            <input value="{{captcha.hashkey}}" name="hashkey" type="hidden" id="id_captcha_0">
+                        </a>
+					</div>
+				</div>
+
+				<div id="" class="form-line">
+					<p></p>
+					<div id="" class="">
+						<p class="forget-pwd">
+							<!--<a href="">忘记密码</a>-->
+							<!--<a href="">快捷登录</a>-->
+						</p>
+						<input type="checkbox" name="isSave" class="isSave" id="isSave"><label for="isSave">记住密码</label>	
+					</div>
+				</div>
+				<div id="" class="form-line">
+					<p></p>
+					<div id="" class="">
+						<input class="loginBtn btn" type="submit" value="登录">
+						{% block huiyuan %}
+						<input class="go_RegBtn" type="button" value="会员注册">
+						<!--<a id="huiyuan" href="/userInfo/register/">会员注册></a>-->
+						{% endblock %}
+					</div>
+				</div>
+			</form>
+			{% endblock %}
+			<div id="" class="clear" style="clear:both;">
+				
+			</div>
+		</div>
+
+	</div>
+ </body>
+</html>
