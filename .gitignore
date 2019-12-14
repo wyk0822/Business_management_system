@@ -5,5 +5,5 @@
 #/TODO           表示仅仅忽略项目根目录下的 TODO 文件，如果这个文件不在根目录下，则不会忽略
 #build/          表示忽略 build/目录下的所有文件，过滤整个build文件夹，不管是否在根目录下；
 *.pyc
-venv/
+!venv/
 __pycache__/
