@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+        {% load staticfiles %}
+    <link REL="SHORTCUT ICON" HREF="/static/images/web.ico">
+    <meta charset="UTF-8">
+    <title>会员管理</title>
+    <link href="/static/css/shangpinguanli.css" rel="stylesheet">
+    <link href="/static/css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <script type="text/javascript" src="/static/js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="/static/js/checkbok_btn.js"></script>
+
+
+        <script>
+    $(function () {
+        $("#del_all").click(function() {
+
+            $.each($('.check'), function () {
+                if (this.checked) {
+                    if(window.confirm('你确定要删除吗？')){
+                        var msg = 1;
+                    }else{
+                        //alert("取消");
+                        var msg = 0;
+                    }
+                    if(msg == 1){
+                        var data = {'id': $(this).val()};
+                        $.get("{% url 'del_huiyuan_s' %}",data,function(obj){
+                            alert(obj.msg)
+                        },"json");
+                    }
+
+                }
+            });
+
+
+
+        });
+    })
+
+</script>
+</head>
+<body>
+    <!--顶部-->
+    <div id="title">
+        <h1>商家管理系统</h1>
+        <span>
+            欢迎 {{ user.administrator_name }} 登陆商家管理系统
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{% url 'logout' %}">退出</a>
+        </span>
+
+    </div>
+
+    <!--左侧导航栏-->
+    <div id="list_left">
+        <ol>
+            {% block link %}
+            <a href="/">
+                <i class=""></i>
+                <li>商品管理&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            <a href="/leibie/type/">
+                <i class=""></i>
+                <li>类型管理&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            <a href="{% url 'show_order' %}">
+                <i class=""></i>
+                <li>订单管理&nbsp;&nbsp;&nbsp;></li>
+            </a>
+
+            <a href="javacript:void(0);">
+                <i class=""></i>
+                <li>会员管理&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            <a href="">
+                <i class=""></i>
+                <li>数据展示&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            {% endblock %}
+        </ol>
+    </div>
+
+
+
+    <!--搜索栏-->
+    {% block main %}
+    <div id='search'>
+        <form action="{% url 'select_huiyuan' %}" method="get">
+            <span>姓名：<input type="text" name="name"></span>
+            <span>手机号码：<input type="text" name="phone"></span><br>
+            <span>性别：<input type="text" name="sex"></span>
+            <span>
+                年龄段：<select name="age" id="">
+                    <option></option>
+                    <option value="a"><19</option>
+                    <option value="b">20-35</option>
+                    <option value="c">36-55</option>
+                    <option value="d">>55</option>
+                    <option value="e">不确定</option>
+                </select>
+
+            </span>
+            <input class="search_btn" type="submit" value="查询">
+        </form>
+    </div>
+    <!--显示区域-->
+    <div id="show_btn">
+        <!--<input class="search_btn btn_1" type="button" name="" value="全选">-->
+        <input id="del_all" class="search_btn btn_1" type="button" name="" value="批量删除">
+        <a href="{% url 'add_huiyuan' %}" class="search_btn" target="_blank">添加会员</a>
+    </div>
+
+    <div id="show">
+
+        <table border="1px">
+            <thead>
+                <tr>
+                    <th style="font-size: 10px">
+                        <input type="checkbox" name="checkall" id="checkall">全选</th>
+                    <th>会员姓名</th>
+                    <th>性别</th>
+                    <th>手机号</th>
+                    <th>年龄段</th>
+                    <th>消费总金额</th>
+                    <!--<th>总积分</th>-->
+                    <th>可用积分</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for people in peoples_after %}
+                <tr>
+                    <td><input  class="check" value="{{people.id}}" type="checkbox" name="check"></td>
+                    <td>{{ people.buy_people_name }}</td>
+                    <td>{{ people.get_buy_people_sex_display }}</td>
+                    <td>{{ people.buy_people_phone }}</td>
+                    <td>{{ people.get_buy_people_age_display }}</td>
+                    <td>{{ people.buy_people_allmoney }}</td>
+                    <!--<td>{{ good.buy_people_alljifen }}</td>-->
+                    <td>{{ people.buy_people_keyongjifen }}</td>
+                    <td><a href="{% url 'change_huiyuan' %}?id={{ people.id }}" target="_blank">详细信息</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="{% url 'del_huiyuan' %}?id={{ people.id }}">删除</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+
+        <!--下一页-->
+        <div id="next-page">
+
+        </div>
+    </div>
+    {% endblock %}
+
+
+</body>
+</html>
+
+

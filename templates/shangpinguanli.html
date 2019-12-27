@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+        {% load staticfiles %}
+    <link rel="stylesheet" href="/static/js/layui/css/layui.css"  media="all">
+    <link REL="SHORTCUT ICON" HREF="/static/images/web.ico">
+    <meta charset="UTF-8">
+    {% block  title %}
+    <title>商品管理</title>
+    {% endblock %}
+    <link href="/static/css/shangpinguanli.css" rel="stylesheet">
+    <link href="/static/css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    {% block link_style %}
+
+    {% endblock %}
+    <script type="text/javascript" src="/static/js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="/static/js/checkbok_btn.js"></script>
+
+
+    {% block js %}
+        <script>
+            $(function () {
+                $("#del_all").click(function() {
+
+                    $.each($('.check'), function () {
+                        if (this.checked) {
+                            if(window.confirm('你确定要删除吗？')){
+                                var msg = 1;
+                            }else{
+                                //alert("取消");
+                                var msg = 0;
+                            }
+                            if(msg == 1){
+                                var data = {'id': $(this).val()};
+                                $.get("/delgoods_two/",data,function(obj){
+                                    alert(obj.msg)
+                                },"json");
+                            }
+                        }
+                    });
+                });
+
+                // window.onload = function(){
+                //     var $a = $('#list_left ol a');       //找到你的a标签在哪一个元素下面
+                //     $a.click(function(){         //给a标签添加点击事件
+                //         var $this = $(this);
+                //         $a.removeClass();
+                //         $this.addClass('current');
+                //     }); 
+                // }
+            })
+        </script>
+    {% endblock %}
+
+</head>
+<body>
+    <!--顶部-->
+    <div id="title">
+        <h1>商家管理系统</h1>
+        {% block setting %}
+        <span id="setting"><input type="button" onclick="open_win()" value="设置"></span>
+        {% endblock %}
+        <span>
+            欢迎 {{ user.administrator_name }} 登陆商家管理系统
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{% url 'logout' %}">退出</a>
+        </span>
+
+    </div>
+
+    <!--左侧导航栏-->
+    <div id="list_left">
+        <ol>
+            {% block link %}
+            <a href="javacript:void(0);">
+                <i class=""></i>
+                <li>商品管理&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            <a href="/leibie/type/">
+                <i class=""></i>
+                <li>类型管理&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            <a href="{% url 'show_order' %}">
+                <i class=""></i>
+                <li>订单管理&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            <a href="{% url 'show_huiyuan' %}">
+                <i class=""></i>
+                <li>会员管理&nbsp;&nbsp;&nbsp;></li>
+            </a>
+
+            <a href="">
+                <i class=""></i>
+                <li>数据展示&nbsp;&nbsp;&nbsp;></li>
+            </a>
+
+            {% endblock %}
+        </ol>
+    </div>
+
+
+
+    <!--搜索栏-->
+    {% block main %}
+    <div id='search'>
+        <form action="/" method="post">
+            {% csrf_token %}
+            <span>商品 &nbsp;&nbsp;ID：<input type="text" name="sid"></span>
+            <span>商品分类：<input type="text" name="leibie"></span>
+            <span>商品名称：<input type="text" name="sname"></span>
+            <br>
+            <span>商品价格：<input class="jiage" type="number" name="low_price"> - <input class="jiage" type="number" name="high_price"></span>
+            <input class="search_btn" type="submit" value="查询">
+        </form>
+    </div>
+    <!--显示区域-->
+    <div id="show_btn">
+        <!--<input class="search_btn btn_1" type="button" name="" value="全选">-->
+        <input id="del_all" class="search_btn btn_1" type="button" name="" value="批量删除">
+        <a href="{% url 'update_goods' %}" class="search_btn" target="_blank">添加商品</a>
+    </div>
+
+    <div id="show">
+
+        <table border="1px">
+            <thead>
+                <tr>
+                    <th style="font-size: 10px">
+                        <input type="checkbox" name="checkall" id="checkall">全选</th>
+                    <th>商品编号</th>
+                    <th>商品名称</th>
+                    <th>商品类型</th>
+                    <th>商品规格</th>
+                    <th>销售价格</th>
+                    <th>库存</th>
+                    <th>销量</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for good in goods %}
+                <tr>
+                    <td><input  class="check" value="{{ good.id }}" type="checkbox" name="check"></td>
+                    <td>{{ good.goods_id }}</td>
+                    <td>{{ good.goods_name }}</td>
+                    <td>{{ good.goods_type }}</td>
+                    <td>{{ good.goods_guige }}</td>
+                    <td>{{ good.goods_price }}</td>
+                    <td>{{ good.goods_kucun }}</td>
+                    <td>{{ good.goods_xiaoliang }}</td>
+                    <td><a href="/change_goods/?good_id={{ good.id }}" target="_blank">修改</a>
+                        <a href="/delgoods/?id={{ good.id }}">删除</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+
+        <!--下一页-->
+        <div id="next-page">
+            <!--<div id="demo7"></div>-->
+
+            <!--<script src="/static/js/layui/layui.js" charset="utf-8"></script>-->
+            <!--&lt;!&ndash; 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 &ndash;&gt;-->
+            <!--<script>-->
+            <!--layui.use(['laypage', 'layer'], function(){-->
+              <!--var laypage = layui.laypage-->
+              <!--,layer = layui.layer;-->
+
+              <!--//完整功能-->
+              <!--laypage.render({-->
+                <!--elem: 'demo7'-->
+                <!--,count: good.length-->
+                <!--,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']-->
+                <!--,jump: function(obj){-->
+                  <!--console.log(obj)-->
+                <!--}-->
+              <!--});-->
+
+              <!--//调用分页-->
+              <!--laypage.render({-->
+                <!--elem: 'demo20'-->
+                <!--,count: data.length-->
+                <!--,jump: function(obj){-->
+                  <!--//模拟渲染-->
+                  <!--document.getElementById('biuuu_city_list').innerHTML = function(){-->
+                    <!--var arr = []-->
+                    <!--,thisData = data.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);-->
+                    <!--layui.each(thisData, function(index, item){-->
+                      <!--arr.push('<li>'+ item +'</li>');-->
+                    <!--});-->
+                    <!--return arr.join('');-->
+                  <!--}();-->
+                <!--}-->
+              <!--});-->
+
+            <!--});-->
+            <!--</script>-->
+        </div>
+    </div>
+    {% endblock %}
+
+
+</body>
+</html>
+
+<script>
+ function open_win()
+            {
+            window.open("{% url 'settings' %}",
+                "_blank","toolbar=yes, " +
+
+                "location=yes, directories=no, status=no, menubar=yes, " +
+                "scrollbars=yes, resizable=no, copyhistory=yes, width=468, " +
+                "height=400, left=400, top=150")
+
+                // height=pixels	窗口文档显示区的高度。以像素计。
+                // left=pixels	窗口的 x 坐标。以像素计。
+                // location=yes|no|1|0	是否显示地址字段。默认是 yes。
+                // menubar=yes|no|1|0	是否显示菜单栏。默认是 yes。
+                // resizable=yes|no|1|0	窗口是否可调节尺寸。默认是 yes。
+                // scrollbars=yes|no|1|0	是否显示滚动条。默认是 yes。
+                // status=yes|no|1|0	是否添加状态栏。默认是 yes。
+                // titlebar=yes|no|1|0	是否显示标题栏。默认是 yes。
+                // toolbar=yes|no|1|0	是否显示浏览器的工具栏。默认是 yes。
+                // top=pixels	窗口的 y 坐标。
+                // width=pixels	窗口的文档显示区的宽度。以像素计。
+            }
+ </script>

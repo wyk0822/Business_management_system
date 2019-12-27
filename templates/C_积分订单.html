@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    {% load staticfiles %}
+    <link REL="SHORTCUT ICON" HREF="/static/images/web.ico">
+    <meta charset="UTF-8">
+    {% block  title %}
+    <title>积分订单</title>
+
+    <link href="/static/css/shangpinguanli.css" rel="stylesheet">
+
+    <link href="/static/css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/shangpin.css">
+    <link rel="stylesheet" href="/static/css/cart.css">
+
+    {% endblock %}
+    <script type="text/javascript" src="/static/js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="/static/js/checkbok_btn.js"></script>
+    <style>
+        #search form {
+            margin-left: 109px;
+            margin-top: -29px;
+        }
+    </style>
+
+
+
+</head>
+<body>
+    <!--顶部-->
+    <div id="title">
+        <h1>商家管理系统</h1>
+        <span>
+            欢迎 {{ user.administrator_name }} 登陆商家管理系统
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{% url 'logout' %}">退出</a>
+        </span>
+
+    </div>
+
+    <!--左侧导航栏-->
+    <div id="list_left">
+        <ol>
+            {% block link %}
+            <a href="/">
+                <i class=""></i>
+                <li>商品管理&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            <a href="/leibie/type/">
+                <i class=""></i>
+                <li>类型管理&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            <a href="{% url 'show_order' %}">
+                <i class=""></i>
+                <li>订单管理&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            <a href="javacript:void(0);">
+                <i class=""></i>
+                <li>会员管理&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            <a href="">
+                <i class=""></i>
+                <li>数据展示&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            {% endblock %}
+        </ol>
+    </div>
+
+    <div id='search'>
+        <p id="search_title">新增订单</p>
+
+        <form action="" method="get" id="search_form">
+            <div id="main">
+                <div class="title">
+                    <!--<p class="check-box">-->
+                        <!--<input type="checkbox" name="checkall" id="checkall">-->
+                        <!--全选-->
+                    <!--</p>-->
+                    <p class="goods">商品</p>
+                    <p class="price">所需积分</p>
+                    <p class="count">数量</p>
+                    <p class="t-sum">小计</p>
+                    <!--<p class="action">操作</p>-->
+                </div>
+
+            <div id="good-content" class="">
+    <!-- 			每一条记录	 -->
+                {% for goods in goods_lst %}
+                <div class="g-item">
+                    <!--<p class="check-box">-->
+                        <!--<input type="checkbox" name="check" value="{{goods.goods_id}}">-->
+                    <!--</p>-->
+                    <p class="goods">
+                        {{ goods.goods_name }}
+                    </p>
+                    <p class="price">&yen;{{goods.goods_jifen}}</p>
+                    <p class="count">
+                        <a href="javascript:void(0)" class="decrement">-</a>
+                        <input type="text" name="count" value="1">
+                        <a href="javascript:void(0)" class="increment">+</a>
+                    </p>
+                    <p class="t-sum">
+                        <strong>&yen;{{goods.goods_jifen}}</strong>
+                    </p>
+
+                </div>
+                {% endfor %}
+    <!--			底部工具栏 -->
+                <div id="people_msg">
+                    <p>姓名：{{people.buy_people_name}}</p>
+                    <p>电话：{{people.buy_people_phone}}</p>
+                    <p>地址：{{people.buy_people_addr}}</p>
+                </div>
+                <div class="cart-toolbar">
+                    <div class="tool-bar">
+                        <input name="" id="select" type="hidden" value="e">
+                        <p class="submit-count">
+                            已选择
+                            <span class="" id="shangpin-count"></span>
+                            件商品
+                        </p>
+                        <p class="submit-price">
+                            订单总计 :
+                            <span class="" id="youhui-top"></span>
+                        </p >
+                        <input class="submit-btn" value="结算" type="button" onclick="show()">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        </form>
+    </div>
+
+<script>
+    function show(){
+        obj = document.getElementsByName("count");
+        var select = document.getElementById("select").value;
+        var sp_count = document.getElementById("shangpin-count").innerText;
+        var youhui_top = document.getElementById("youhui-top").innerText;
+        var check_val = [];
+        for(k in obj){
+
+            check_val.push(obj[k].value);
+        }
+
+        var send_check_val = JSON.stringify(check_val);
+
+        $.ajax({
+            url:"{% url 'add_order_jifen' %}",
+            type:'get',
+            data:{
+                'count_lst':send_check_val,
+                'sp_count': sp_count,
+                'youhui_top': youhui_top,
+                'select': select,
+            },
+            dataType:'json',
+            success:function (data) {
+                alert(data.msg);
+                window.close();
+            }
+        });
+
+
+
+
+    }
+
+
+</script>
+</body>
+</html>
+
+
+

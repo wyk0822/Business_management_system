@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+        {% load staticfiles %}
+    <link REL="SHORTCUT ICON" HREF="/static/images/web.ico">
+    <meta charset="UTF-8">
+    {% block  title %}
+    <title>选择会员</title>
+    {% endblock %}
+    <link href="/static/css/shangpinguanli.css" rel="stylesheet">
+
+    <link href="/static/css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    {% block link_style %}
+
+    {% endblock %}
+    <script type="text/javascript" src="/static/js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="/static/js/checkbok_btn.js"></script>
+
+
+    {% block js %}
+    {% endblock %}
+    <style>
+        #show{
+            right: 54px;
+            bottom: 553px;
+        }
+    </style>
+</head>
+<body>
+<div id="title">
+        <h1>商家管理系统</h1>
+        <span>
+            欢迎 {{ user.administrator_name }} 登陆商家管理系统
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{% url 'logout' %}">退出</a>
+        </span>
+
+    </div>
+
+    <!--左侧导航栏-->
+    <div id="list_left">
+        <ol>
+            {% block link %}
+            <a href="/">
+                <i class=""></i>
+                <li>商品管理&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            <a href="/leibie/type/">
+                <i class=""></i>
+                <li>类型管理&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            <a href="{% url 'show_order' %}">
+                <i class=""></i>
+                <li>订单管理&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            <a href="{% url 'show_huiyuan' %}">
+                <i class=""></i>
+                <li>会员管理&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            <a href="">
+                <i class=""></i>
+                <li>数据展示&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            {% endblock %}
+        </ol>
+    </div>
+
+
+
+    <div id="show">
+        <form action="{% url 'add_order' %}">
+        <table border="1px">
+            <thead>
+                <tr>
+                    <th style="font-size: 10px">
+                        <!--<input type="checkbox" name="checkall" id="checkall">全选</th>-->
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>手机号</th>
+                    <th>可用积分</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for good in peoples_after %}
+                <tr>
+                    <td><input  class="check" value="{{ good.id }}" type="radio" name="check"></td>
+                    <td>{{ good.buy_people_name }}</td>
+                    <td>{{ good.buy_people_sex }}</td>
+                    <td>{{ good.buy_people_phone }}</td>
+                    <td>{{ good.buy_people_keyongjifen }}</td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+
+            <input type="submit" value="积分兑换">
+    <input type="button" value="现金购买" onclick="show()">
+    </form>
+    </div>
+
+
+
+
+<script>
+    function show() {
+       obj = document.getElementsByName("check");
+
+            for(k in obj){
+                if(obj[k].checked)
+                    var send_check_val = obj[k].value;
+            }
+            $.ajax({
+                url:"{% url 'recv_people' %}",
+                type:'get',
+                data:{'b':send_check_val},
+                dataType:'json',
+            });
+            window.location.href="{% url 'add_order' %}"
+    }
+</script>
+</body>
+</html>
+
+

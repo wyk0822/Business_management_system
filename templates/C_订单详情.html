@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    {% load staticfiles %}
+    <link REL="SHORTCUT ICON" HREF="/static/images/web.ico">
+    <meta charset="UTF-8">
+    {% block  title %}
+    <title>订单详情</title>
+
+    <link href="/static/css/shangpinguanli.css" rel="stylesheet">
+
+    <link href="/static/css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/shangpin.css">
+
+
+    {% endblock %}
+    <script type="text/javascript" src="/static/js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="/static/js/checkbok_btn.js"></script>
+
+</head>
+<body>
+    <!--顶部-->
+    <div id="title">
+        <h1>商家管理系统</h1>
+        <span>
+            欢迎 {{ user.administrator_name }} 登陆商家管理系统
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{% url 'logout' %}">退出</a>
+        </span>
+
+    </div>
+
+    <!--左侧导航栏-->
+    <div id="list_left">
+        <ol>
+            {% block link %}
+            <a href="/">
+                <i class=""></i>
+                <li>商品管理&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            <a href="/leibie/type/">
+                <i class=""></i>
+                <li>类型管理&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            <a href="javacript:void(0);">
+                <i class=""></i>
+                <li>订单管理&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            <a href="{% url 'show_huiyuan' %}">
+                <i class=""></i>
+                <li>会员管理&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            <a href="">
+                <i class=""></i>
+                <li>数据展示&nbsp;&nbsp;&nbsp;></li>
+            </a>
+            {% endblock %}
+        </ol>
+    </div>
+
+    <!--搜索栏-->
+    {% block main %}
+    <div id='search'>
+        <p id="search_title">订单详情</p>
+
+        <form action="" method="get" id="search_form">
+            <hr>
+            <input type="hidden" value="{{good.id}}" name="good_id">
+            <span>订单编号：{{ order.order_id}}</span>
+            <span>订单时间：{{ order.dingdanshijian}}</span>
+            <span>支付方式：{{ order.get_zhifufangshi_display }}</span>
+            <span>商品件数：{{ order.goumailiang }}</span>
+            <br>
+            <span>总计：{{ order.chengjiao_money }}</span>
+            <span>优惠金额：{{ order.youhuijine }}</span>
+            <span>支付金额：{{ order.chengjiao_allmoney }}</span>
+            <span>获得积分：{{ order.huodejifen }}</span>
+            <span>消耗积分：{{ order.xiaohaojifen }}</span>
+            <hr>
+            {% for i in cart_goods %}
+            <span>商品名称：{{i.goods_id.goods_name}}</span>
+            <span>商品类型：{{i.goods_id.goods_type}}</span>
+            <span>商品价格：{{i.goods_id.goods_price}}</span>
+            <span>商品规格：{{i.goods_id.goods_guige}}</span>
+            <br>
+            {% endfor %}
+            <hr>
+            <span>购买人姓名：{{order.buy_prople.buy_people_name}}</span>
+            <span>购买人手机号：{{order.buy_prople.buy_people_phone}}</span>
+            <span>购买人地址：{{order.buy_prople.buy_people_addr}}</span>
+        </form>
+    </div>
+    {% endblock %}
+
+
+</body>
+</html>
+
+

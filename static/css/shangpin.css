@@ -1,0 +1,40 @@
+/*all*/
+#search{
+    height: 88%;
+    width: 83%;
+    top: -88%;
+    right: 0px;
+    background: white;
+}
+
+#search_title{
+    font-family: 幼圆;
+    font-size: 22px;
+    float: left;
+    position: relative;
+    left: 6%;
+    top: 8%;
+}
+
+#search_form{
+    float: left;
+    position: relative;
+    left: -7%;
+    top: 11%;
+}
+
+#search_form hr{
+    height: 0px;
+}
+
+#search_form select{
+    border: 1px solid #ccc;
+    /*padding: 5px 0px;*/
+    /*border-radius: 3px; !*css3属性IE不支持*!*/
+    padding-left:5px;
+    margin-bottom: 24px;
+    outline: none;
+    width: 176px;
+    height: 27px;
+}
+
