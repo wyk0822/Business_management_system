@@ -23,7 +23,7 @@ def show_order(request):
             print(i.dingdanshijian.strftime('%Y-%m-%d %H:%M:%S'))
             if i.order_is_show == 1:
                 orders.append(i)
-        return render(request, 'C_订单管理.html', locals())
+        return render(request, 'C_order_management.html', locals())
 
 
 # 选择用户
@@ -40,7 +40,7 @@ def select_peoples(request):
                 pass
             else:
                 peoples_after.append(i)
-        return render(request, 'C_选择会员.html', locals())
+        return render(request, 'C_select_member.html', locals())
 
 
 # 选择用户
@@ -49,7 +49,7 @@ def select_goods(request):
         uid = request.session.get('uid')
         user = Administrators.objects.filter(id=uid)[0]
         goods = Goods.objects.filter(administrator_id=user.id)
-        return render(request, 'C_选择商品.html', locals())
+        return render(request, 'C_select_product.html', locals())
 
 
 # 接受 商品
@@ -110,7 +110,7 @@ def add_order(request):
                 if check:
                     BUY_PEOPLE_id.append(check)
                     people = Buy_peoples.objects.get(id=check)
-                    return render(request, 'C_积分订单.html', locals())
+                    return render(request, 'C_jifen_order.html', locals())
                 else:
 
                     # 购买人信息
@@ -120,7 +120,7 @@ def add_order(request):
                     people = Buy_peoples.objects.get(id=people_id)
                     GOODS_PEOPLE_DIC['people'] = people
                     print(people)
-                    return render(request, 'C_添加订单.html', locals())
+                    return render(request, 'C_add_order.html', locals())
         except:
             return HttpResponse('未选择商品或者是购买人')
 
@@ -300,7 +300,7 @@ def order_xiangqing(request):
         order = Order.objects.get(id=order_id)
         cart_goods = Cart.objects.filter(order_id=order.id)
 
-        return render(request, 'C_订单详情.html', locals())
+        return render(request, 'C_order_details.html', locals())
 
 
 # 查询
@@ -330,7 +330,7 @@ def select_order(request):
                         i.buy_prople.buy_people_name == people_name and \
                         str(i.dingdanshijian).split()[0] == order_date:
                     orders.append(i)
-            return render(request, 'C_订单管理.html', locals())
+            return render(request, 'C_order_management.html', locals())
 
         if people_name and people_phone and order_date:
             for i in orders_all:
@@ -338,7 +338,7 @@ def select_order(request):
                         i.buy_prople.buy_people_name == people_name and \
                         str(i.dingdanshijian).split()[0] == order_date:
                     orders.append(i)
-            return render(request, 'C_订单管理.html', locals())
+            return render(request, 'C_order_management.html', locals())
 
         if order_id and people_phone and order_date:
             for i in orders_all:
@@ -346,7 +346,7 @@ def select_order(request):
                         i.buy_prople.buy_people_phone == people_phone and \
                         str(i.dingdanshijian).split()[0] == order_date:
                     orders.append(i)
-            return render(request, 'C_订单管理.html', locals())
+            return render(request, 'C_order_management.html', locals())
 
         if order_id and people_name and order_date:
             for i in orders_all:
@@ -354,7 +354,7 @@ def select_order(request):
                         i.buy_prople.buy_people_name == people_name and \
                         str(i.dingdanshijian).split()[0] == order_date:
                     orders.append(i)
-            return render(request, 'C_订单管理.html', locals())
+            return render(request, 'C_order_management.html', locals())
 
         if order_id and people_name and people_phone:
             for i in orders_all:
@@ -362,70 +362,70 @@ def select_order(request):
                         i.buy_prople.buy_people_phone == people_phone and \
                         i.buy_prople.buy_people_name == people_name:
                     orders.append(i)
-            return render(request, 'C_订单管理.html', locals())
+            return render(request, 'C_order_management.html', locals())
 
         if order_id and people_name:
             for i in orders_all:
                 if i.order_id == order_id and \
                         i.buy_prople.buy_people_name == people_name:
                     orders.append(i)
-            return render(request, 'C_订单管理.html', locals())
+            return render(request, 'C_order_management.html', locals())
 
         if order_id and people_phone:
             for i in orders_all:
                 if i.order_id == order_id and \
                         i.buy_prople.buy_people_phone == people_phone:
                     orders.append(i)
-            return render(request, 'C_订单管理.html', locals())
+            return render(request, 'C_order_management.html', locals())
 
         if order_id and order_date:
             for i in orders_all:
                 if i.order_id == order_id and \
                         str(i.dingdanshijian).split()[0] == order_date:
                     orders.append(i)
-            return render(request, 'C_订单管理.html', locals())
+            return render(request, 'C_order_management.html', locals())
 
         if people_name and people_phone:
             for i in orders_all:
                 if i.buy_prople.buy_people_phone == people_phone and \
                         i.buy_prople.buy_people_name == people_name:
                     orders.append(i)
-            return render(request, 'C_订单管理.html', locals())
+            return render(request, 'C_order_management.html', locals())
 
         if people_name and order_date:
             for i in orders_all:
                 if i.buy_prople.buy_people_name == people_name and \
                         str(i.dingdanshijian).split()[0] == order_date:
                     orders.append(i)
-            return render(request, 'C_订单管理.html', locals())
+            return render(request, 'C_order_management.html', locals())
 
         if people_phone and order_date:
             for i in orders_all:
                 if i.buy_prople.buy_people_phone == people_phone and \
                         str(i.dingdanshijian).split()[0] == order_date:
                     orders.append(i)
-            return render(request, 'C_订单管理.html', locals())
+            return render(request, 'C_order_management.html', locals())
 
         if order_id:
             for i in orders_all:
                 if i.order_id == order_id:
                     orders.append(i)
-            return render(request, 'C_订单管理.html', locals())
+            return render(request, 'C_order_management.html', locals())
         if people_name:
             for i in orders_all:
                 if i.buy_prople.buy_people_name == people_name:
                     orders.append(i)
-            return render(request, 'C_订单管理.html', locals())
+            return render(request, 'C_order_management.html', locals())
         if people_phone:
             for i in orders_all:
                 if i.buy_prople.buy_people_phone == people_phone:
                     orders.append(i)
-            return render(request, 'C_订单管理.html', locals())
+            return render(request, 'C_order_management.html', locals())
         if order_date:
             for i in orders_all:
                 if str(i.dingdanshijian).split()[0] == order_date:
                     orders.append(i)
-            return render(request, 'C_订单管理.html', locals())
+            return render(request, 'C_order_management.html', locals())
 
 
 

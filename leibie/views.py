@@ -11,7 +11,7 @@ def goods_types_views(request):
             uid = request.session.get('uid')
             user = Administrators.objects.filter(id=uid)[0]
             goods_types = Goods_types.objects.filter(administrator_id=user.id)
-            return render(request, 'B_商品类型管理.html', locals())
+            return render(request, 'B_product_type_management.html', locals())
         else:
             return redirect('/userInfo/login/')
     else:
@@ -43,7 +43,7 @@ def goods_types_views(request):
                 if str(i.administrator_id) == str(user.administrator_id):
                     goods_types.append(i)
 
-        return render(request, 'B_商品类型管理.html', locals())
+        return render(request, 'B_product_type_management.html', locals())
 
 
 # 删除类别
@@ -76,7 +76,7 @@ def add_type(request):
         if 'uid' in request.session:
             uid = request.session.get('uid')
             user = Administrators.objects.get(id=uid)
-            return render(request, 'B_增加商品类型.html', locals())
+            return render(request, 'B_add_product_type.html', locals())
     except:
         return HttpResponse('加载失败,请再次刷新。。')
 
@@ -139,7 +139,7 @@ def update_type(request):
     id = request.GET.get('id')
     goods_type = Goods_types.objects.get(id=id)
     print(id, goods_type)
-    return render(request, 'B_修改商品类型.html', locals())
+    return render(request, 'B_modify_product_type.html', locals())
 
 def update_type_1(request):
     uid = request.session.get('uid')

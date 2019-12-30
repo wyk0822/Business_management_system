@@ -22,7 +22,7 @@ def show_huiyuan(request):
             else:
                 peoples_after.append(i)
             index+=1
-        return render(request, 'D_会员管理.html', locals())
+        return render(request, 'D_member_management.html', locals())
     else:
         return redirect('/userInfo/login/')
 
@@ -31,7 +31,7 @@ def add_huiyuan(request):
     if 'uid' in request.session:
         uid = request.session.get('uid')
         user = Administrators.objects.filter(id=uid)[0]
-        return render(request, 'D_添加会员.html', locals())
+        return render(request, 'D_add_member.html', locals())
     else:
         return redirect('/userInfo/login/')
 
@@ -126,7 +126,7 @@ def change_huiyuan(request):
         user = Administrators.objects.get(id=uid)
         huiyuan_id = request.GET.get('id')
         people = Buy_peoples.objects.get(id=huiyuan_id)
-        return render(request, 'D_修改会员.html', locals())
+        return render(request, 'D_modify_member.html', locals())
 
 
 def change_huiyuan_2(request):
@@ -262,4 +262,4 @@ def select_huiyuan(request):
             if str(i.administrator_id) == str(user.administrator_id)and i.buy_people_is_show==1:
                 peoples_after.append(i)
 
-    return render(request, 'D_会员管理.html', locals())
+    return render(request, 'D_member_management.html', locals())

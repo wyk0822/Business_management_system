@@ -163,7 +163,7 @@ def update_goods(request):
         uid = request.session.get('uid')
         user = Administrators.objects.get(id=uid)
         goods_types = Goods_types.objects.filter(administrator_id=user.id)
-        return render(request, 'A_添加商品.html', locals())
+        return render(request, 'A_add_product.html', locals())
 
 def update_goods_2(request):
     uid = request.session.get('uid')
@@ -342,7 +342,7 @@ def change_goods(request):
         good_id = request.GET.get('good_id')
         good = Goods.objects.get(id=good_id)
         goods_types = Goods_types.objects.filter(administrator_id=user.id)
-        return render(request, 'A_修改商品.html', locals())
+        return render(request, 'A_modify_product.html', locals())
 
 
 def change_goods_2(request):
