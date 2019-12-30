@@ -1,9 +1,8 @@
-import json
+import json, sys
 from django.shortcuts import render, redirect, HttpResponse
 from captcha.helpers import captcha_image_url
 from captcha.models import CaptchaStore
 import re
-
 from userInfo import utils
 from userInfo.forms import LoginForm
 from .models import *
@@ -226,6 +225,19 @@ def update_pwd(request):
             return HttpResponse('密码修改成功')
         # except:
         #     return HttpResponse('密码修改失败')
+
+def forget_pwd(request):
+    return render(request, 'email_modfiy_pwd.html', locals())
+
+# 导入自定义发送邮件模块
+sys.path.append("../../")
+from lib import send_email_demo
+#邮件修改密码
+def email_modfiy_pwd(request):
+    user_id = '18733181565@163.com'  # 收件人邮箱账号
+    msg = "123123爱神的箭as建档立卡孙经理看到吉安市劳动局 as交流电卡数据类 撒娇迪欧洒基"
+    send_email_demo.mail(user_id, msg)
+    return HttpResponse("发送成功")
 
 def jiami(req_Pwd):
     s1 = sha1()
