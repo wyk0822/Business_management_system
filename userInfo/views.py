@@ -2,7 +2,7 @@ import json, sys
 from django.shortcuts import render, redirect, HttpResponse
 from captcha.helpers import captcha_image_url
 from captcha.models import CaptchaStore
-import re
+import re, random
 from userInfo import utils
 from userInfo.forms import LoginForm
 from .models import *
@@ -234,10 +234,17 @@ sys.path.append("../../")
 from lib import send_email_demo
 #邮件修改密码
 def email_modfiy_pwd(request):
-    user_id = '18733181565@163.com'  # 收件人邮箱账号
-    msg = "123123爱神的箭as建档立卡孙经理看到吉安市劳动局 as交流电卡数据类 撒娇迪欧洒基"
-    send_email_demo.mail(user_id, msg)
-    return HttpResponse("发送成功")
+    useremail_id = request.GET.get("useremail_id")
+    print(useremail_id)
+    # user_id = '18733181565@163.com'  # 收件人邮箱账号
+    send_email_code = ""
+    for i in range(6):
+        msg = str(random.randint(0, 9))
+        print(msg)
+        send_email_code+=msg
+    print(send_email_code)
+    send_email_demo.mail(useremail_id, send_email_code)
+    return HttpResponse(json.dumps({"status":1, "msg": "send successful"}))
 
 def jiami(req_Pwd):
     s1 = sha1()
