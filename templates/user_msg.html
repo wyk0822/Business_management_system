@@ -11,6 +11,8 @@
 <form action="{% url 'settings_2'%}">
     <span>
         昵称：<input type="text" name="name" value="{{user.administrator_name}}"><br>
+    </span><span>
+        邮箱：<input type="email" name="email" value="{{user.administrator_email}}"><br>
     </span>
     <span>
         积分：<input type="text" name="jifen" value="{{user.administrator_jifen}}"><br>

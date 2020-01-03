@@ -196,9 +196,11 @@ def settings_2(request):
             uid = request.session.get('uid')
             user = Administrators.objects.get(id=uid)
             name = request.GET.get('name')
+            email = request.GET.get('email')
             jifen = request.GET.get('jifen')
             user.administrator_name = name
             user.administrator_jifen = float(jifen)
+            user.administrator_email = email
             user.save()
             return HttpResponse('保存成功')
         except:
@@ -232,19 +234,46 @@ def forget_pwd(request):
 # 导入自定义发送邮件模块
 sys.path.append("../../")
 from lib import send_email_demo
-#邮件修改密码
-def email_modfiy_pwd(request):
+#发送邮件函数
+def send_email(request):
+    user_id = request.GET.get("user_id")
     useremail_id = request.GET.get("useremail_id")
-    print(useremail_id)
-    # user_id = '18733181565@163.com'  # 收件人邮箱账号
-    send_email_code = ""
-    for i in range(6):
-        msg = str(random.randint(0, 9))
-        print(msg)
-        send_email_code+=msg
-    print(send_email_code)
-    send_email_demo.mail(useremail_id, send_email_code)
-    return HttpResponse(json.dumps({"status":1, "msg": "send successful"}))
+    if useremail_id == "":
+        return HttpResponse(json.dumps({"msg": "User mailbox cannot be empty"}))
+    elif user_id == "":
+        return HttpResponse(json.dumps({"msg": "User id cannot be empty"}))
+    else:
+        # print(user_id)
+        user = Administrators.objects.get(administrator_id=str(user_id))
+        print(user.administrator_email)
+        if user:
+            if user.administrator_email == useremail_id:
+                # print(useremail_id)
+                # user_id = '18733181565@163.com'  # 收件人邮箱账号
+                send_email_demo.send_email_code = ""
+                for i in range(6):
+                    msg = str(random.randint(0, 9))
+                    # print(msg)
+                    send_email_demo.send_email_code+=msg
+                # print(send_email_code)
+                send_email_demo.mail(useremail_id, send_email_demo.send_email_code)
+                return HttpResponse(json.dumps({"status":1, "msg": "send email successful"}))
+            else:
+                return HttpResponse(json.dumps({"msg": "User mailbox input error"}))
+        else:
+            return HttpResponse(json.dumps({"msg": "User id input error"}))
+
+
+def email_modfiy_pwd(request):
+    user_id = request.GET.get("user_id")
+    useremail_id = request.GET.get("useremail_id")
+    yzm = request.GET.get("yzm")
+    pwd1 = request.GET.get("pwd1")
+    pwd2 = request.GET.get("pwd2")
+    print(yzm, send_email_demo.send_email_code)
+    if yzm == send_email_demo.send_email_code:
+        pass
+    return HttpResponse("1223")
 
 def jiami(req_Pwd):
     s1 = sha1()

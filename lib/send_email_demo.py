@@ -6,6 +6,7 @@ my_sender = '418544725@qq.com'  # 发件人邮箱账号
 my_pass = 'jtzxkkfeitcdbgdg'  # 发件人邮箱密码
 # user_id = '18733181565@163.com'  # 收件人邮箱账号
 # msg = "12312312312312"
+send_email_code = ""
 
 
 def mail(my_user, send_msg):

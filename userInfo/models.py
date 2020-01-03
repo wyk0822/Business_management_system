@@ -11,6 +11,7 @@ class Administrators(models.Model):
     administrator_name = models.CharField(max_length=30, default='root', null=False, verbose_name='用户昵称')
     administrator_pwd = models.CharField(max_length=100, null=False, verbose_name='用户密码')
     administrator_jifen = models.DecimalField(max_digits=4, decimal_places=2, default=1, verbose_name='积分')
+    administrator_email = models.CharField(max_length=100, null=False, verbose_name='用户邮箱', default="123@163.com")
 
     def __str__(self):
         return str(self.administrator_id)

@@ -12,5 +12,6 @@ urlpatterns = [
     url(r'^update_security_img/$', update_security_img, name='update_security_img'),
     url(r'^forget_pwd/$', forget_pwd, name='forget_pwd'),
     url(r'^email_modfiy_pwd/$', email_modfiy_pwd, name='email_modfiy_pwd'),
+    url(r'^send_email/$', send_email, name='send_email'),
     url(r'^test_html/$', test_html, name='test_html'),
 ]

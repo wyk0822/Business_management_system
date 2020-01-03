@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>重置密码</title>
@@ -9,13 +9,19 @@
 </head>
 <body>
 <form method="get" action="{% url 'email_modfiy_pwd' %}">
-    <input type="email"> <br>
+    <p><input type="text" id="user_id" name="user_id"></p>
+    <p><input type="email" id="useremail_id" name="useremail_id"></p>
+    <p><input type="text" placeholder="yzm" name="yzm"></p>
+    <p><button id="numbtn" >获取</button></p>
+    <p><input type="password" placeholder="" name="pwd1"></p>
+    <p><input type="password" placeholder="" name="pwd2"></p>
+    <p><input type="submit" value="提交"></p>
+{#    #}
+{#    <input id="useremail_id" type="email"> <br>#}
+{#    <input type="text" placeholder="yzm">#}
+{#    <button id="numbtn" >获取</button><br>#}
+{#    <input type="password" placeholder=""><br>#}
     <br>
-    <input id="useremail_id" type="email"> <br>
-    <input type="text" placeholder="">
-    <button id="numbtn" >获取</button><br>
-    <input type="password" placeholder=""><br>
-    <input type="password" placeholder=""><br>
 </form>
 
 
