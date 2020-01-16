@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c423b3b1-a787-4277-9c44-87e2e4883d58" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/package/Python-3.7.4.tar.xz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/package/django-1.11.18.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/package/django-simple-captcha-0.5.12.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/jquery.cookie.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/send_email_demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/send_email_demo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/time60s.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/time60s.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/time60s.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/email_modfiy_pwd.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/email_modfiy_pwd.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/email_modfiy_pwd.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user_msg.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user_msg.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userInfo/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/userInfo/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userInfo/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/userInfo/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/userInfo/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/userInfo/views.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
@@ -50,8 +50,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/userInfo/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="13" column="48" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="48" />
+            <state relative-caret-position="221">
+              <caret line="14" column="53" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -62,8 +62,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/userInfo/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="277" column="19" lean-forward="true" selection-start-line="277" selection-start-column="19" selection-end-line="277" selection-end-column="19" />
+            <state relative-caret-position="217">
+              <caret line="285" selection-start-line="285" selection-end-line="285" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
@@ -72,49 +72,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/userInfo/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/send_email_demo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/email_modfiy_pwd.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+            <state relative-caret-position="285">
+              <caret line="26" column="7" lean-forward="true" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/time60s.js">
+        <entry file="file://$PROJECT_DIR$/static/js/email_modfiy_pwd.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+            <state relative-caret-position="340">
+              <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/check_login.js">
+        <entry file="file://$PROJECT_DIR$/static/js/checkbok_btn.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="9" selection-start-line="4" selection-start-column="8" selection-end-line="13" selection-end-column="9" />
+            <state relative-caret-position="1700">
+              <caret line="100" selection-start-line="100" selection-end-line="100" />
             </state>
           </provider>
         </entry>
@@ -135,6 +114,7 @@
       <find>.html</find>
       <find>密码</find>
       <find>settime</find>
+      <find>post</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -144,7 +124,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Readme" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/send_email_demo.py" />
         <option value="$PROJECT_DIR$/wx_Project/settings.py" />
         <option value="$PROJECT_DIR$/README.md" />
@@ -155,18 +134,20 @@
         <option value="$PROJECT_DIR$/templates/user_msg.html" />
         <option value="$PROJECT_DIR$/userInfo/models.py" />
         <option value="$PROJECT_DIR$/lib/send_email_demo.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/userInfo/urls.py" />
         <option value="$PROJECT_DIR$/static/js/time60s.js" />
         <option value="$PROJECT_DIR$/templates/email_modfiy_pwd.html" />
         <option value="$PROJECT_DIR$/userInfo/views.py" />
+        <option value="$PROJECT_DIR$/static/js/email_modfiy_pwd.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="170" />
-    <option name="y" value="91" />
-    <option name="width" value="1026" />
-    <option name="height" value="546" />
+    <option name="x" value="-28" />
+    <option name="y" value="12" />
+    <option name="width" value="1040" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -183,28 +164,18 @@
             <path>
               <item name="Business_management_system" type="b2602c69:ProjectViewProjectNode" />
               <item name="Business_management_system" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Business_management_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Business_management_system" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Business_management_system" type="b2602c69:ProjectViewProjectNode" />
               <item name="Business_management_system" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Business_management_system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Business_management_system" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Business_management_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Business_management_system" type="462c0819:PsiDirectoryNode" />
-              <item name="userInfo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Business_management_system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Business_management_system" type="462c0819:PsiDirectoryNode" />
-              <item name="userInfo" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Business_management_system" type="b2602c69:ProjectViewProjectNode" />
@@ -232,6 +203,10 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Business_management_system\lib" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Business_management_system\lib\package" />
+      <recent name="E:\Business_management_system\static\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -368,6 +343,15 @@
       <workItem from="1577946885407" duration="637000" />
       <workItem from="1577949052248" duration="10593000" />
       <workItem from="1578014762148" duration="2524000" />
+      <workItem from="1578018280380" duration="4969000" />
+      <workItem from="1578032128212" duration="3504000" />
+      <workItem from="1578273166553" duration="1167000" />
+      <workItem from="1578292511802" duration="5088000" />
+      <workItem from="1578366082211" duration="37000" />
+      <workItem from="1578449494175" duration="1417000" />
+      <workItem from="1578561863264" duration="15000" />
+      <workItem from="1578884165602" duration="17000" />
+      <workItem from="1579140051723" duration="841000" />
     </task>
     <task id="LOCAL-00001" summary="add send email demo">
       <created>1577673454975</created>
@@ -411,11 +395,18 @@
       <option name="project" value="LOCAL" />
       <updated>1577775937878</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="update">
+      <created>1578018384714</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1578018384714</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51794000" />
+    <option name="totallyTimeSpent" value="68849000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -428,8 +419,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27155825" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2685325" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -442,8 +434,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.30491802" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" sideWeight="0.49924356" weight="0.3295082" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49848714" visible="true" weight="0.37540984" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5015129" side_tool="true" weight="0.37540984" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49546143" visible="true" weight="0.25081968" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5045386" side_tool="true" weight="0.17704917" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3295082" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.3295082" />
       <window_info anchor="bottom" id="manage.py@Business_management_system" order="14" show_stripe_button="false" weight="0.3295082" />
@@ -451,9 +443,9 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" weight="0.22541603" />
+      <window_info anchor="right" id="Database" order="3" weight="0.2246596" />
       <window_info anchor="right" id="SciView" order="4" weight="0.32980332" />
-      <window_info anchor="right" id="Mongo Explorer" order="5" weight="0.3290469" />
+      <window_info anchor="right" id="Mongo Explorer" order="5" weight="0.22815534" />
       <window_info anchor="right" id="Redis Servers" order="6" weight="0.32980332" />
     </layout>
     <layout-to-restore>
@@ -531,7 +523,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Business_management_system$send_email_demo__1_.coverage" NAME="send_email_demo (1) Coverage Results" MODIFIED="1577691705677" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lib" />
-    <SUITE FILE_PATH="coverage/Business_management_system$manage.coverage" NAME="manage Coverage Results" MODIFIED="1577949143473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Business_management_system$manage.coverage" NAME="manage Coverage Results" MODIFIED="1578033668559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Business_management_system$send_email_demo.coverage" NAME="send_email_demo Coverage Results" MODIFIED="1577675797716" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
@@ -651,18 +643,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/checkbok_btn.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#8#13#1" expanded="true" />
-            <element signature="e#8#13#1" expanded="true" />
-            <element signature="e#8#13#1" expanded="true" />
-            <element signature="e#8#13#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dingdan/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-225">
@@ -684,22 +664,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="66" column="59" selection-start-line="66" selection-start-column="59" selection-end-line="66" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pre-install.sh">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/user_msg.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -715,13 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/userInfo/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/check_login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -729,44 +688,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/userInfo/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="13" column="48" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/time60s.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/email_modfiy_pwd.html">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/send_email_demo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/userInfo/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-791">
+          <caret line="67" column="30" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/jquery.cookie.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userInfo/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="14" column="53" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/checkbok_btn.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1700">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/email_modfiy_pwd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/email_modfiy_pwd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="26" column="7" lean-forward="true" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/userInfo/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="277" column="19" lean-forward="true" selection-start-line="277" selection-start-column="19" selection-end-line="277" selection-end-column="19" />
+        <state relative-caret-position="217">
+          <caret line="285" selection-start-line="285" selection-end-line="285" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
           </folding>

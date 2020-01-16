@@ -4,58 +4,25 @@
     <meta charset="UTF-8">
     <title>重置密码</title>
     <script type="text/javascript" src="/static/js/jquery-1.11.3.js"></script>
-    <script type="text/javascript" src="/static/js/time60s.js"></script>
+    <script type="text/javascript" src="/static/js/email_modfiy_pwd.js"></script>
+    <script src="/static/js/jquery.cookie.js"></script>
     <link REL="SHORTCUT ICON" HREF="/static/images/web.ico">
 </head>
 <body>
-<form method="get" action="{% url 'email_modfiy_pwd' %}">
-    <p><input type="text" id="user_id" name="user_id"></p>
-    <p><input type="email" id="useremail_id" name="useremail_id"></p>
-    <p><input type="text" placeholder="yzm" name="yzm"></p>
-    <p><button id="numbtn" >获取</button></p>
-    <p><input type="password" placeholder="" name="pwd1"></p>
-    <p><input type="password" placeholder="" name="pwd2"></p>
-    <p><input type="submit" value="提交"></p>
-{#    #}
-{#    <input id="useremail_id" type="email"> <br>#}
-{#    <input type="text" placeholder="yzm">#}
-{#    <button id="numbtn" >获取</button><br>#}
-{#    <input type="password" placeholder=""><br>#}
-    <br>
+<form>
+    {% csrf_token %}
+    <p>用户id：<input type="text" id="user_id" name="user_id"></p>
+    <p>用户邮箱：<input type="email" id="useremail_id" name="useremail_id"></p>
+    <p>
+        验证码：
+        <input type="text" placeholder="yzm" id="yzm">
+        <button id="numbtn">获取</button>
+    </p>
+    <p>密码<input type="password" placeholder="" id="pwd1"></p>
+    <p>确认密码<input type="password" placeholder="" id="pwd2"></p>
+    <p>
+        <button id="submitBtn">提交</button>
+    </p>
 </form>
-
-
-
-
-{#<script>#}
-{#    // 获取验证码倒计时#}
-{##}
-{#    var countdown = 60;#}
-{##}
-{#    $('#numbtn').on('click', function () {#}
-{#        var obj = $("#numbtn");#}
-{#        settime(obj);#}
-{#    });#}
-{##}
-{#    function settime(obj) { //发送验证码倒计时#}
-{#        if (countdown == 0) {#}
-{#            obj.attr('disabled', false);#}
-{#            obj.html("免费获取验证码");#}
-{#            countdown = 60;#}
-{#            return;#}
-{#        } else {#}
-{#            obj.attr('disabled', true);#}
-{#            obj.html("重新发送(" + countdown + ")");#}
-{#            countdown--;#}
-{#        }#}
-{##}
-{#        setTimeout(function () {#}
-{#                settime(obj)#}
-{#            }#}
-{#            , 1000)#}
-{#    }#}
-{#</script>#}
-
-
 </body>
 </html>

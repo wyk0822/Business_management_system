@@ -265,15 +265,16 @@ def send_email(request):
 
 
 def email_modfiy_pwd(request):
-    user_id = request.GET.get("user_id")
-    useremail_id = request.GET.get("useremail_id")
-    yzm = request.GET.get("yzm")
-    pwd1 = request.GET.get("pwd1")
-    pwd2 = request.GET.get("pwd2")
-    print(yzm, send_email_demo.send_email_code)
+    user_id = request.POST.get("user_id")
+    useremail_id = request.POST.get("useremail_id")
+    yzm = request.POST.get("yzm")
+    pwd1 = request.POST.get("pwd1")
+    pwd2 = request.POST.get("pwd2")
+    print("userid:", user_id, "useremailid:", useremail_id, "yzm:", yzm, "sendemailcode:", send_email_demo.send_email_code, "pwd1:", pwd1, "pwd2", pwd2)
     if yzm == send_email_demo.send_email_code:
-        pass
-    return HttpResponse("1223")
+        return HttpResponse(json.dumps({"msg":yzm}))
+    else:
+        return HttpResponse(json.dumps({"msg":"Captcha input error"}))
 
 def jiami(req_Pwd):
     s1 = sha1()
