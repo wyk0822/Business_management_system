@@ -1,4 +1,4 @@
-# Business_management_system
+# Business management system
 需要安装的模块  
     `pip install Django==1.11.8`  
     `pip install django-simple-captcha==0.5.12` 
