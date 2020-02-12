@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 # 安装Python
-cd ./lib/package/Python-3.7.4.tar.gz
-
+cd ./lib/package/
 tar -xzvf Python-3.7.4.tar.gz
 tar -xzvf django-1.11.18.tar.gz
 tar -xzvf django-simple-captcha-0.5.12.tar.gz
+
+
 cd Python-3.7.4
 ./configure --prefix=/usr/local/python3
 make all
