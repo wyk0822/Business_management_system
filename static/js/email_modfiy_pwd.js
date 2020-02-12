@@ -56,10 +56,10 @@ $(function () {
 
     function check_userid_useremail(userid, useremail) {
         if (userid == ""){
-            alert("jsuser id cannot be empty");
+            alert("jsuser id can not be empty");
             return 0;
         } else if (useremail == ""){
-            alert("jsUser mailbox cannot be empty");
+            alert("jsUser mailbox can not be empty");
             return 0;
         }else {
             return 1;

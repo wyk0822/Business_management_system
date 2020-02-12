@@ -131,6 +131,7 @@ def register_view(request):
             return HttpResponse("账号不符合规范")
 
         administrator_name = request.POST.get('administrator_name')
+        administrator_email = request.POST.get('administrator_email')
         administrator_pwd = request.POST.get('administrator_pwd')
         administrator_pwd2 = request.POST.get('administrator_pwd2')
         if administrator_pwd == administrator_pwd2:
@@ -143,7 +144,8 @@ def register_view(request):
 
             user = Administrators(administrator_id=administrator_id,
                                   administrator_name=administrator_name,
-                                  administrator_pwd=administrator_pwd)
+                                  administrator_pwd=administrator_pwd,
+                                  administrator_email=administrator_email)
             user.save()
             return redirect('/userInfo/login')
         else:
